@@ -1,23 +1,21 @@
-import { Box, Stack } from '@mui/material';
+import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import './App.css';
-import AlarmList from './components/AlarmList';
-import Header from './components/Header';
-import Navigation from './components/Navigation'
+import AddAlarm from './components/Alarm/AddAlarm';
+import Alarm from './components/Alarm/Alarm';
+import Layout from './components/Layout';
 
 function App() {
   return (
-    <Box bgcolor='#1C1C1C' width='100%' height='100vh'>
-      <Stack 
-        direction='column' 
-        justifyContent='space-between'
-        height='100%'
-      >
-        <Header />
-        <AlarmList />
-        
-        <Navigation />
-      </Stack>
-    </Box>
+    <BrowserRouter>
+    <Routes>
+      <Route path='/' element={<Layout />}>
+        <Route index element={<Alarm />} />
+      </Route>
+    </Routes>
+    <Routes>
+      <Route path='AddAlarm' element={<AddAlarm />} />
+    </Routes>
+    </BrowserRouter>
   );
 }
 

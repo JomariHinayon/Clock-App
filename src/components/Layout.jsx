@@ -4,16 +4,17 @@ import AlarmIcon from '@mui/icons-material/Alarm';
 import ClockIcon from '@mui/icons-material/AccessTime';
 import StopwatchIcon from '@mui/icons-material/Timer';
 import TimerIcon from '@mui/icons-material/HourglassBottom';
-import AddAlarm from './AddAlarm';
-import { BorderTop } from '@mui/icons-material';
+import { Link, Outlet } from 'react-router-dom';
 
-const Navigation = () => {
+
+const Layout = () => {
     const [value, setValue] = useState(0);
   return (
+    <>
+    <Outlet />
     <Stack direction='column' gap={2} fixed>
-        <AddAlarm />
         <BottomNavigation 
-            showLabels
+            showlabels
             value={value}
             onChange={(event, newValue) => {setValue(newValue)}}
             sx={{
@@ -21,13 +22,22 @@ const Navigation = () => {
                 borderTop: '1px solid white'
             }}
         >
-            <BottomNavigationAction label='Alarm' icon={<AlarmIcon />}/>
-            <BottomNavigationAction label='Alarm' icon={<ClockIcon />}/>
-            <BottomNavigationAction label='Alarm' icon={<TimerIcon />}/>
-            <BottomNavigationAction label='Alarm' icon={<StopwatchIcon />}/>
+            <Link to='/'>
+                <BottomNavigationAction label='Alarm' icon={<AlarmIcon />}/>
+            </Link>
+            <Link to='/clock'>
+                <BottomNavigationAction label='Clock' icon={<ClockIcon />}/> 
+            </Link>
+            <Link to='/timer'>
+                <BottomNavigationAction label='Timer' icon={<TimerIcon />}/>
+            </Link>
+            <Link to='/stopwatch'>
+                <BottomNavigationAction label='Stopwatch' icon={<StopwatchIcon />}/>
+            </Link>
         </BottomNavigation>
     </Stack>
+    </>
   )
 }
 
-export default Navigation
+export default Layout
