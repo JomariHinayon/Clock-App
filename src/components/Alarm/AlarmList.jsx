@@ -1,8 +1,8 @@
-import { Container, Stack, Switch, Box, SpeedDialIcon} from '@mui/material'
+import { Container, Stack, Switch} from '@mui/material'
 import React from 'react'
 import LabelAndRepeat from './LabelAndRepeat'
 import Time from './Time'
-import { Link } from 'react-router-dom'
+
 
 
 
@@ -26,24 +26,6 @@ const AlarmList = () => {
           <LabelAndRepeat />
           <Switch />
       </Stack>
-      <Box 
-        component='span' 
-        sx={{ 
-            display: 'flex',
-            alignItems: 'center',
-            justifyContent: 'center',
-            margin: '0px auto', 
-            width: '40px',
-            height: '40px',
-            backgroundColor:'green',
-            borderRadius: '100%',
-            
-        }}
-      >
-      <Link to='AddAlarm'>
-        <SpeedDialIcon sx={{ color: 'white'}}/>
-      </Link> 
-    </Box>
     </Container> 
   )
 }
